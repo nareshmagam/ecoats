@@ -122,18 +122,19 @@ export class RegisterComponent extends UtilSerrvice implements OnInit {
 
     this.disabledForm = true;
 
-    this._service.registraion(this.regBO).subscribe(resp => {
+    this._service.registraion(this.regBO).subscribe((resp: any) => {
       this.disabledForm = false;
-      if (resp == "ACT_LINK_OK") {
+
+      if (resp.message == "ACT_LINK_OK") {
         this.regBO = new SignupModel();
         this.registrationForm.reset();
         this._toast.success("Successfully registered, please check register official email id");
       }
-      else if (resp == "EMAIL_ID_DUP")
+      else if (resp.message == "EMAIL_ID_DUP")
         this._toast.error("Official email id already exists, please proceed with another one");
-      else if (resp == "PHONE_NUM_DUP")
+      else if (resp.message == "PHONE_NUM_DUP")
         this._toast.error("Mobile number already exists, please proceed with another one");
-        
+
     }, (error) => {
       console.log(error);
       this._toast.error("Something went wrong, please try again");
