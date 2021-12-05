@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'EPIC - angular 10/src/environments/environment';
+import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
 
 @Injectable({

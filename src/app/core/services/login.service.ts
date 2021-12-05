@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
-import { environment } from 'EPIC - angular 10/src/environments/environment';
 import { LoginModel } from 'src/app/shared/models/login.model';
-
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
