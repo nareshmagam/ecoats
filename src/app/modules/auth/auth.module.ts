@@ -11,13 +11,15 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UtilSerrvice } from 'src/app/shared/utilities/util.service';
 import { UserAuthComponent } from './user-auth/user-auth.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     AuthRoutingModule,
     CarouselModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   declarations: [
     AuthRoutingModule.components,
