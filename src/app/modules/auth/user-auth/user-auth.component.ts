@@ -22,8 +22,8 @@ export class UserAuthComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     console.log(this.usrKey);
 
-    this._service.usrActivation(this.usrKey).subscribe(resp => {
-      if (resp == "OK") {
+    this._service.usrActivation(this.usrKey).subscribe((resp: any) => {
+      if (resp.message == "OK") {
         this._alert.success("Successfully user activated");
         this._router.navigate(['login']);
       }

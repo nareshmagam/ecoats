@@ -73,7 +73,7 @@ export class RegisterComponent extends UtilSerrvice implements OnInit {
 
     this.registrationForm = this._fb.group({
       firstName: ['', [Validators.required, Validators.maxLength(150)]],
-      middleName: ['', [Validators.required, Validators.maxLength(150)]],
+      middleName: ['', [Validators.maxLength(150)]],
       lastName: ['', [Validators.required, Validators.maxLength(150)]],
       emailID: ['', [Validators.required, Validators.maxLength(150), Validators.email]],
       orgName: ['', [Validators.required, Validators.maxLength(250)]],
@@ -124,12 +124,16 @@ export class RegisterComponent extends UtilSerrvice implements OnInit {
 
     this._service.registraion(this.regBO).subscribe(resp => {
       this.disabledForm = false;
-      if (resp == "ACT_LINK_OK")
+      if (resp == "ACT_LINK_OK") {
+        this.regBO = new SignupModel();
+        this.registrationForm.reset();
         this._toast.success("Successfully registered, please check register official email id");
+      }
       else if (resp == "EMAIL_ID_DUP")
         this._toast.error("Official email id already exists, please proceed with another one");
       else if (resp == "PHONE_NUM_DUP")
         this._toast.error("Mobile number already exists, please proceed with another one");
+        
     }, (error) => {
       console.log(error);
       this._toast.error("Something went wrong, please try again");

@@ -9,10 +9,13 @@
             </div>
             <div class="card-body reg_form">
                 <div class="card-title">Create new registration</div>
+
+                <p>Required Fields <label class="color_red">*</label> </p>
+
                 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
                     <div class="form_height">
                         <div class="form-group">
-                            <label class="form-label">Contact First Name</label>
+                            <label class="form-label">Contact First Name <label class="color_red">*</label></label>
                             <input type="text" class="form-control" placeholder="Contact First Name"
                                 formControlName="firstName"
                                 [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
@@ -30,7 +33,7 @@
                                 formControlName="middleName"
                                 [ngClass]="{ 'is-invalid': submitted && f.middleName.errors }">
                             <div *ngIf="submitted && f.middleName.errors" class="invalid-feedback">
-                                <div *ngIf="f.middleName.errors.required">Contact middle name is required</div>
+                                
                                 <div *ngIf="f.middleName.errors?.maxlength">Contact middle name can be max 150
                                     characters long
                                 </div>
@@ -38,7 +41,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">Contact Last Name</label>
+                            <label class="form-label">Contact Last Name <label class="color_red">*</label></label>
                             <input type="text" class="form-control" placeholder="Contact Last name"
                                 formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
                             <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
@@ -48,7 +51,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Official Email Id</label>
+                            <label class="form-label">Official Email Id <label class="color_red">*</label></label>
                             <input type="text" class="form-control" placeholder="Official Email Id"
                                 formControlName="emailID" [ngClass]="{ 'is-invalid': submitted && f.emailID.errors }">
                             <div *ngIf="submitted && f.emailID.errors" class="invalid-feedback">
@@ -61,7 +64,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Organization Name</label>
+                            <label class="form-label">Organization Name <label class="color_red">*</label></label>
                             <input type="text" class="form-control" placeholder="Organization Name"
                                 formControlName="orgName" [ngClass]="{ 'is-invalid': submitted && f.orgName.errors }">
                             <div *ngIf="submitted && f.orgName.errors" class="invalid-feedback">
@@ -72,7 +75,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">Address Line 1</label>
+                            <label class="form-label">Address Line 1 <label class="color_red">*</label></label>
                             <input type="text" class="form-control" placeholder="Address Line 1"
                                 formControlName="address_1"
                                 [ngClass]="{ 'is-invalid': submitted && f.address_1.errors }">
@@ -92,7 +95,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">City</label>
+                            <label class="form-label">City <label class="color_red">*</label></label>
                             <input type="text" class="form-control" placeholder="City" formControlName="city"
                                 [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
                             <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
@@ -102,7 +105,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">State</label>
+                            <label class="form-label">State <label class="color_red">*</label></label>
                             <input type="text" class="form-control" placeholder="State" formControlName="state"
                                 [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
                             <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
@@ -112,7 +115,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">Zip Code</label>
+                            <label class="form-label">Zip Code <label class="color_red">*</label></label>
                             <input type="text" class="form-control" placeholder="Zip Code" formControlName="zip"
                                 [ngClass]="{ 'is-invalid': submitted && f.zip.errors }"
                                 (keypress)="keyPressEvt($event, 'NUMBER')">
@@ -122,7 +125,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Country</label>
+                            <label class="form-label">Country <label class="color_red">*</label></label>
                             <input type="text" class="form-control" placeholder="Country" formControlName="country"
                                 [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
                             <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
@@ -132,7 +135,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">Work Phone Number</label>
+                            <label class="form-label">Work Phone Number <label class="color_red">*</label></label>
                             <input type="text" class="form-control" placeholder="Work Phone Number"
                                 formControlName="orgPhone" [ngClass]="{ 'is-invalid': submitted && f.orgPhone.errors }"
                                 (keypress)="keyPressEvt($event, 'PHONE')">
@@ -144,7 +147,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">Mobile Number</label>
+                            <label class="form-label">Mobile Number <label class="color_red">*</label></label>
                             <input type="text" class="form-control" placeholder="Mobile Number" formControlName="phone"
                                 [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
                                 (keypress)="keyPressEvt($event, 'PHONE')">
@@ -165,7 +168,7 @@
                         </div>
 
                         <div class="form-group pwd_icon">
-                            <label class="form-label">Password</label>
+                            <label class="form-label">Password <label class="color_red">*</label></label>
                             <input [type]="isShowPass ? 'text' : 'password'" class="form-control" placeholder="Password"
                                 formControlName="createPassword"
                                 [ngClass]="{ 'is-invalid': submitted && f.createPassword.errors }">
@@ -185,7 +188,7 @@
                         </div>
 
                         <div class="form-group pwd_icon">
-                            <label class="form-label">Confirm Password</label>
+                            <label class="form-label">Confirm Password <label class="color_red">*</label></label>
                             <input [type]="isShowConfirmPass ? 'text' : 'password'" class="form-control"
                                 placeholder="Confirm Password" formControlName="confirmPassword"
                                 [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
@@ -217,7 +220,7 @@
  -->
 
                         <div class="form-group reCaptcha_align">
-                            <span class="form-label">Re Captcha : {{geneateUniqNo}} </span>
+                            <span class="form-label">Re Captcha : {{geneateUniqNo}} <label class="color_red">*</label></span>
 
                             <label class="icon_refresh">
                                 <i class="fa fa-refresh" (click)="uniqueNum()"></i>
