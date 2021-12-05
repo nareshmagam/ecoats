@@ -1,0 +1,41 @@
+.auth{}
+.auth .reg_form .form_height {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.auth .img_company_logo {
+    width: 15%;
+} 
+.auth .company_text {
+    color: #2d71aa;
+    font-family: system-ui;
+    font-size: larger;
+    font-weight: 500;
+}
+
+
+.auth .pwd_icon {
+    position: relative;
+}
+
+.auth .pwd_icon input {
+    background-image: none;
+}
+
+.auth .pwd_icon .form-group-append {
+    position: absolute;
+    top: 33px;
+    right: 12px;
+}
+
+.auth .reCaptcha_align {
+    position: relative;
+}
+
+.auth .reCaptcha_align .icon_refresh {
+    position: absolute;
+    top: 0px;
+    right: 13px;
+    cursor: pointer;
+}

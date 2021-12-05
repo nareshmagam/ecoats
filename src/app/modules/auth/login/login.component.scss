@@ -1,0 +1,15 @@
+.auth{}
+.auth .reg_form .form_height {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.auth .img_company_logo {
+    width: 15%;
+} 
+.auth .company_text {
+    color: #2d71aa;
+    font-family: system-ui;
+    font-size: larger;
+    font-weight: 500;
+}

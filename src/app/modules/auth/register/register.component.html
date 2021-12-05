@@ -1,0 +1,284 @@
+<div class="auth">
+    <div class="auth_left">
+        <div class="card">
+            <div class="text-center mb-3">
+                <!-- [routerLink]="['/hr-dashboard']" href="javascript:void(0)" -->
+                <!-- <a class="header-brand"><i class="fe fe-command brand-logo"></i></a> -->
+                <img class="img_company_logo" src="../assets/images/companyLogo.jpg" alt="logo">
+                <p class="mb-0 company_text mt-2">Capital InfoTech Inc</p>
+            </div>
+            <div class="card-body reg_form">
+                <div class="card-title">Create new registration</div>
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                    <div class="form_height">
+                        <div class="form-group">
+                            <label class="form-label">Contact First Name</label>
+                            <input type="text" class="form-control" placeholder="Contact First Name"
+                                formControlName="firstName"
+                                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                <div *ngIf="f.firstName.errors.required">Contact first name is required</div>
+                                <div *ngIf="f.firstName.errors?.maxlength">Contact first name can be max 150 characters
+                                    long
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Contact Middle Name</label>
+                            <input type="text" class="form-control" placeholder="Contact Middle Name"
+                                formControlName="middleName"
+                                [ngClass]="{ 'is-invalid': submitted && f.middleName.errors }">
+                            <div *ngIf="submitted && f.middleName.errors" class="invalid-feedback">
+                                <div *ngIf="f.middleName.errors.required">Contact middle name is required</div>
+                                <div *ngIf="f.middleName.errors?.maxlength">Contact middle name can be max 150
+                                    characters long
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Contact Last Name</label>
+                            <input type="text" class="form-control" placeholder="Contact Last name"
+                                formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                <div *ngIf="f.lastName.errors.required">Contact last name is required</div>
+                                <div *ngIf="f.lastName.errors?.maxlength">Contact last name can be max 150 characters
+                                    long</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Official Email Id</label>
+                            <input type="text" class="form-control" placeholder="Official Email Id"
+                                formControlName="emailID" [ngClass]="{ 'is-invalid': submitted && f.emailID.errors }">
+                            <div *ngIf="submitted && f.emailID.errors" class="invalid-feedback">
+                                <div *ngIf="f.emailID.errors.required">Official email id is required</div>
+                                <div *ngIf="f.emailID.errors.email">Official email id must be a valid email address
+                                </div>
+                                <div *ngIf="f.emailID.errors?.maxlength">Official email id can be max 150 characters
+                                    long
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Organization Name</label>
+                            <input type="text" class="form-control" placeholder="Organization Name"
+                                formControlName="orgName" [ngClass]="{ 'is-invalid': submitted && f.orgName.errors }">
+                            <div *ngIf="submitted && f.orgName.errors" class="invalid-feedback">
+                                <div *ngIf="f.orgName.errors.required">Organization name is required</div>
+                                <div *ngIf="f.orgName.errors?.maxlength">Organization name can be max 250 characters
+                                    long</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Address Line 1</label>
+                            <input type="text" class="form-control" placeholder="Address Line 1"
+                                formControlName="address_1"
+                                [ngClass]="{ 'is-invalid': submitted && f.address_1.errors }">
+                            <div *ngIf="submitted && f.address_1.errors" class="invalid-feedback">
+                                <div *ngIf="f.address_1.errors.required">Address line 1 is required</div>
+                                <div *ngIf="f.address_1.errors?.maxlength">Address line 1 can be max 250
+                                    characters long</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Address Line 2</label>
+                            <input type="text" class="form-control" placeholder="Address Line 2"
+                                formControlName="address_2">
+                            <div *ngIf="submitted && f.address_2.errors" class="invalid-feedback">
+                                <div *ngIf="f.address_2.errors?.maxlength">Address line 2 can be max 250
+                                    characters long</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-control" placeholder="City" formControlName="city"
+                                [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                            <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                                <div *ngIf="f.city.errors.required">City is required</div>
+                                <div *ngIf="f.city.errors?.maxlength">City can be max 100 characters long</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">State</label>
+                            <input type="text" class="form-control" placeholder="State" formControlName="state"
+                                [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+                            <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                                <div *ngIf="f.state.errors.required">State is required</div>
+                                <div *ngIf="f.state.errors?.maxlength">State can be max 100 characters long</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Zip Code</label>
+                            <input type="text" class="form-control" placeholder="Zip Code" formControlName="zip"
+                                [ngClass]="{ 'is-invalid': submitted && f.zip.errors }"
+                                (keypress)="keyPressEvt($event, 'NUMBER')">
+                            <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
+                                <div *ngIf="f.zip.errors.required">Zip code is required</div>
+                                <div *ngIf="f.zip.errors?.maxlength">Zip code can be max 15 characters long</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Country</label>
+                            <input type="text" class="form-control" placeholder="Country" formControlName="country"
+                                [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                            <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                                <div *ngIf="f.country.errors.required">Country is required</div>
+                                <div *ngIf="f.country.errors?.maxlength">Country can be max 150 characters long</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Work Phone Number</label>
+                            <input type="text" class="form-control" placeholder="Work Phone Number"
+                                formControlName="orgPhone" [ngClass]="{ 'is-invalid': submitted && f.orgPhone.errors }"
+                                (keypress)="keyPressEvt($event, 'PHONE')">
+                            <div *ngIf="submitted && f.orgPhone.errors" class="invalid-feedback">
+                                <div *ngIf="f.orgPhone.errors.required">Work phone number is required</div>
+                                <div *ngIf="f.orgPhone.errors?.maxlength">Work phone number can be max 15 characters
+                                    long</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Mobile Number</label>
+                            <input type="text" class="form-control" placeholder="Mobile Number" formControlName="phone"
+                                [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+                                (keypress)="keyPressEvt($event, 'PHONE')">
+                            <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                                <div *ngIf="f.phone.errors.required">Mobile number is required</div>
+                                <div *ngIf="f.phone.errors?.maxlength">Mobile number can be max 15 characters long</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Fax Number</label>
+                            <input type="text" class="form-control" placeholder="Fax Number" formControlName="fax"
+                                [ngClass]="{ 'is-invalid': submitted && f.fax.errors }"
+                                (keypress)="keyPressEvt($event, 'PHONE')">
+                            <div *ngIf="submitted && f.fax.errors" class="invalid-feedback">
+                                <div *ngIf="f.fax.errors?.maxlength">Fax number can be max 15 characters long</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group pwd_icon">
+                            <label class="form-label">Password</label>
+                            <input [type]="isShowPass ? 'text' : 'password'" class="form-control" placeholder="Password"
+                                formControlName="createPassword"
+                                [ngClass]="{ 'is-invalid': submitted && f.createPassword.errors }">
+
+                            <div class="form-group-append">
+                                <span class="form-group-text">
+                                    <i *ngIf="isShowPass" class="fa fa-eye" (click)="pwdShowHide()"></i>
+                                    <i *ngIf="!isShowPass" class="fa fa-eye-slash" (click)="pwdShowHide()"></i>
+                                </span>
+                            </div>
+
+                            <div *ngIf="submitted && f.createPassword.errors" class="invalid-feedback">
+                                <div *ngIf="f.createPassword.errors.required">Password is required</div>
+                                <div *ngIf="f.createPassword.errors?.maxlength">Password can be max 250 characters long
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group pwd_icon">
+                            <label class="form-label">Confirm Password</label>
+                            <input [type]="isShowConfirmPass ? 'text' : 'password'" class="form-control"
+                                placeholder="Confirm Password" formControlName="confirmPassword"
+                                [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+
+                            <div class="form-group-append">
+                                <span class="form-group-text">
+                                    <i *ngIf="isShowConfirmPass" class="fa fa-eye"
+                                        (click)="isShowConfirmPass = !isShowConfirmPass"></i>
+                                    <i *ngIf="!isShowConfirmPass" class="fa fa-eye-slash"
+                                        (click)="isShowConfirmPass = !isShowConfirmPass"></i>
+                                </span>
+                            </div>
+
+                            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                                <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                                <div *ngIf="f.confirmPassword.errors?.maxlength">Confirm Password can be max 250
+                                    characters long</div>
+                                <div *ngIf="f.confirmPassword.errors.mustMatch">Password must match</div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-group">
+                            <label class="form-label">Re Captcha</label>
+                            <div class="form-control">
+                                {{geneateUniqNo}}
+                            </div>
+
+                        </div>
+ -->
+
+                        <div class="form-group reCaptcha_align">
+                            <span class="form-label">Re Captcha : {{geneateUniqNo}} </span>
+
+                            <label class="icon_refresh">
+                                <i class="fa fa-refresh" (click)="uniqueNum()"></i>
+                            </label>
+
+                            <input type="text" class="form-control" placeholder="Re Captcha" formControlName="captcha"
+                                [ngClass]="{ 'is-invalid': submitted && f.captcha.errors }">
+                            <div *ngIf="submitted && f.captcha.errors" class="invalid-feedback">
+                                <div *ngIf="f.captcha.errors.required">Re Captcha is required</div>
+                                <div *ngIf="f.captcha.errors.noMatch">Re Captcha must match</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" formControlName="agree"/>
+                                <span class="custom-control-label">Agree the <a href="javascript:void(0)">terms and
+                                        policy</a></span>
+                            </label>
+
+                            <!-- <div *ngIf="submitted && f.agree.errors" class="invalid-feedback">
+                                <div *ngIf="f.agree.errors.required">Agree the terms is required</div>
+                            </div> -->
+
+                        </div>
+                    </div>
+
+                    <div class="form-footer">
+                        <button class="btn btn-primary btn-block" [disabled]="disabledForm">Create new
+                            registration</button>
+                    </div>
+                </form>
+            </div>
+            <div class="text-center text-muted">
+                Already have account? <a [routerLink]="['/login']" href="javascript:void(0)">Sign in</a>
+            </div>
+        </div>
+    </div>
+    <div class="auth_right">
+        <carousel [isAnimated]="true">
+            <slide>
+                <img src="assets/images/slider1.svg" class="img-fluid" alt="first slide">
+                <div class="px-4 mt-4">
+                    <h4>Fully Responsive</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+            </slide>
+            <slide>
+                <img src="assets/images/slider2.svg" class="img-fluid" alt="second slide">
+                <div class="px-4 mt-4">
+                    <h4>Quality Code and Easy Customizability</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available.</p>
+                </div>
+            </slide>
+            <slide>
+                <img src="assets/images/slider3.svg" class="img-fluid" alt="third slide">
+                <div class="px-4 mt-4">
+                    <h4>Cross Browser Compatibility</h4>
+                    <p>Overview We're a group of women who want to learn JavaScript.</p>
+                </div>
+            </slide>
+        </carousel>
+    </div>
+</div>
