@@ -1,6 +1,18 @@
 .usr_activation {
     height: 100vh !important;
-    margin-top: 45vh;
     align-items: center;
     text-align: center;
+    background-color: #fff;
+}
+
+.usr_activation .mt-45 {
+    margin-top: 25vh;
+}
+
+.usr_activation .img_company_logo {
+    width: 15%;
+}
+
+.img_anc{
+    text-decoration: underline;
 }

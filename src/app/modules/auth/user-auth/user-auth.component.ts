@@ -30,7 +30,7 @@ export class UserAuthComponent implements OnInit, AfterViewInit {
       // else if (resp == "") 
 
     }, (error) => {
-      this._router.navigate(['error-500']);
+      // this._router.navigate(['error-500']);
     })
   }
 

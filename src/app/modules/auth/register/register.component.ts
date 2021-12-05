@@ -126,6 +126,7 @@ export class RegisterComponent extends UtilSerrvice implements OnInit {
       this.disabledForm = false;
 
       if (resp.message == "ACT_LINK_OK") {
+        this.uniqueNum();
         this.regBO = new SignupModel();
         this.registrationForm.reset();
         this._toast.success("Successfully registered, please check register official email id");
