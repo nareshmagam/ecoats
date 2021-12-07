@@ -63,24 +63,24 @@ export class LoginComponent implements OnInit {
 
     console.log(this.loginForm.value);
 
-    this.loginBO.username = this.f.emailID.value;
+    this.loginBO.userName = this.f.emailID.value;
     this.loginBO.password = this.f.password.value;
 
     this.formDisabled = true;
 
-    this._service.validateLogin(this.loginBO).subscribe(resp => {
-      
+    this._service.validateLogin(this.loginBO).subscribe((resp: any) => {
+
       this.formDisabled = false;
 
-      if (resp == "OK") {
+      if (resp.message == "OK") {
         this._toast.success("Successfully login");
         setTimeout(() => {
           this._router.navigate(['hr-dashboard']);
         }, 1000);
       }
-      else if (resp == "INCORRECT_CRD")
+      else if (resp.message == "INCORRECT_CRD")
         this._toast.error("Incorrect credentials, please try again");
-      else if (resp == "USR_INACTIVE")
+      else if (resp.message == "USR_INACTIVE")
         this._toast.error("User not activated yet");
     }, (err) => {
       this.formDisabled = false;
