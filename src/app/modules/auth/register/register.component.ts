@@ -129,6 +129,7 @@ export class RegisterComponent extends UtilSerrvice implements OnInit {
         this.uniqueNum();
         this.regBO = new SignupModel();
         this.registrationForm.reset();
+        this.submitted = false;
         this._toast.success("Successfully registered, please check register official email id");
       }
       else if (resp.message == "EMAIL_ID_DUP")
