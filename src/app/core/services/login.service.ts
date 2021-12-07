@@ -22,7 +22,7 @@ export class LoginService {
   }
 
   usrActivation(key: string) {
-    return this._http.get(`${environment.baseUrl}activate-account?userName= ${key}`);
+    return this._http.get(`${environment.baseUrl}activate-account/${key}`);
   }
 
 }

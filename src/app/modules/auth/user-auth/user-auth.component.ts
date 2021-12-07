@@ -30,6 +30,8 @@ export class UserAuthComponent implements OnInit, AfterViewInit {
 
     this._service.usrActivation(this.usrKey).subscribe((resp: any) => {
       if (resp.message == "ACT_ACTIVATED") {
+        console.log(resp.message);
+        
         this._alert.success("User activated");
         this._router.navigate(['login']);
       }
