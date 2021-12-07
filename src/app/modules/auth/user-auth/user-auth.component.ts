@@ -11,6 +11,7 @@ import { LoginService } from 'src/app/core/services/login.service';
 export class UserAuthComponent implements OnInit, AfterViewInit {
 
   usrKey: string;
+  count: number = 10;
 
   constructor(private _service: LoginService, private _router: Router,
     private _actRoute: ActivatedRoute, private _alert: ToastrService) { }
@@ -22,9 +23,14 @@ export class UserAuthComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     console.log(this.usrKey);
 
+    setInterval(() => {
+      if (this.count > 0)
+        this.count -= 1;
+    }, 1000)
+
     this._service.usrActivation(this.usrKey).subscribe((resp: any) => {
-      if (resp.message == "OK") {
-        this._alert.success("Successfully user activated");
+      if (resp.message == "ACT_ACTIVATED") {
+        this._alert.success("User activated");
         this._router.navigate(['login']);
       }
       // else if (resp == "") 
