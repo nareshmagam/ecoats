@@ -18,7 +18,7 @@ export class LoginService {
     //   this.subject$.next({ purpose: "validateLogin", result: resp });
     // })
 
-    return this._http.post(environment.baseUrl + 'validateLogin', payload);
+    return this._http.post(environment.baseUrl + 'validate-login', payload);
   }
 
   usrActivation(key: string) {
